@@ -1,4 +1,6 @@
-h3 The MEAN Stack
-ul(ng-show='mean')
-  li(ng-repeat='technology in mean') {{technology}}
-
+h3 Demo of Directives
+div(kj-movie, ng-repeat='movie in movies', movie='{{title}}')
+div(ng-repeat='person in people', kj-greeting, name='{{person.name}}', age='{{person.age}}')
+div(kj-clock, frequency='2000')
+div(kj-stock, ng-repeat='symbol in symbols', symbol='{{symbol}}')
+div(kj-weather, zip='37216')

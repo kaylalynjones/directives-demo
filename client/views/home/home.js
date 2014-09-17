@@ -1,15 +1,12 @@
 (function(){
   'use strict';
 
-  angular.module('mean-template')
-  .controller('HomeCtrl', ['$scope', '$interval', 'Home', function($scope, $interval, Home){
-    Home.getMessage().then(function(response){
-      $scope.mean = response.data.mean;
+  angular.module('directives-demo')
+  .controller('HomeCtrl', ['$scope', function($scope){
 
-      $interval(function(){
-        $scope.mean = _.shuffle($scope.mean);
-      }, 500);
-    });
+    $scope.people = [{name:'Bob', age:25}];
+    $scope.symbols = ['AAPL', 'GOOG', 'AMZN', 'MSFT'];
+    $scope.movies = ['Lars and the Real Girl', 'Clerks'];
   }]);
 })();
 
