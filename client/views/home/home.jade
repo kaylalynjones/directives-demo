@@ -1,8 +1,15 @@
 h3 Demo of Directives
-div(kj-movie, title='Lars and the Real Girl')
-div(kj-movie, title='Clerks')
-div(kj-movie, title='12 Monkeys')
-div(ng-repeat='person in people', kj-greeting, name='{{person.name}}', age='{{person.age}}')
+
 div(kj-clock, frequency='2000')
-div(kj-stock, ng-repeat='symbol in symbols', symbol='{{symbol}}')
-div(kj-weather, zip='37216')
+div.pull-right(kj-locate)
+div.pull-right(kj-weather, zip='37216')
+hr
+div
+.row
+  input(type='text', ng-model='title')
+  button(ng-click='addMovie()') Add Movie
+.row
+  div(kj-movie, ng-repeat='title in titles', title='{{title}}', remove='delMovie($index)')
+  div(ng-repeat='person in people', kj-greeting, name='{{person.name}}', age='{{person.age}}')
+  div
+  div(kj-stock, ng-repeat='symbol in symbols', symbol='{{symbol}}')

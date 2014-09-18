@@ -3,12 +3,14 @@
 
   angular.module('directives-demo')
   .factory('Home', ['$http', function($http){
-
-    function getMessage(){
-      return $http.get('/home');
+    function save(title){
+      return $http.post('/movies', {title:title});
+    }
+    function del(title){
+      return $http.post('/movies/del', {title:title});
     }
 
-    return {getMessage:getMessage};
+    return {save:save, del:del};
   }]);
 })();
 
