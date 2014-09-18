@@ -25,11 +25,12 @@
     o.scope       = {};
     o.link        = function(scope, element, attrs){
                     };
-    o.controller  = ['$scope', function($scope){
+    o.controller  = ['$scope', '$rootScope', function($scope, $rootScope){
       $scope.findMe = function(){
         LocationService.locate().then(success, error);
       };
       function success(pos){
+        $rootScope.$broadcast('position', pos);
         console.log(pos);
       }
       function error(err){
